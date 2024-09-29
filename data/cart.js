@@ -75,3 +75,19 @@ export function updateQuantity(productId, newQuantity) {
 
   saveToStorage();
 }
+
+export function updateDeliveryOption(productId, deliveryOptionId) {
+  // поиск товара в корзине по productId и присвоение его переменной
+  let matchingItem;
+
+  cart.forEach((cartItem) => {
+    if (productId === cartItem.productId) {
+      matchingItem = cartItem;
+    }
+  });
+
+  // обновим deliveryOptionId у товара в корзине
+  matchingItem.deliveryOptionId = deliveryOptionId;
+
+  saveToStorage();
+}
