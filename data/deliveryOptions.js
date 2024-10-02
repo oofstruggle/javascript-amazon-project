@@ -1,3 +1,5 @@
+import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
+
 export const deliveryOptions = [{
   id: '1',
   deliveryDays: 7,
@@ -22,4 +24,30 @@ export function getDeliveryOption(deliveryOptionId) {
   });
 
   return deliveryOption || deliveryOptions[0];
+}
+
+export function isWeekend(date) {
+	const dayOfWeek = date.format('dddd');
+	return dayOfWeek === 'Saturday' || dayOfWeek === 'Sunday';
+}
+
+// пятница 4 октября + 7 дней = четверг 15 октября
+
+export function calculateDeliveryDate(deliveryOption) {
+  let remainingDays = deliveryOption.deliveryDays; // 7
+  let deliveryDate = dayjs(); // пятница 4 октября
+
+  while (remainingDays > 0) {
+    deliveryDate = deliveryDate.add(1, 'day');
+
+    if (!isWeekend(deliveryDate)) {
+      remainingDays--;
+    }
+  }
+
+  const dateString = deliveryDate.format(
+    'dddd, MMMM D'
+  );
+
+  return dateString;
 }
