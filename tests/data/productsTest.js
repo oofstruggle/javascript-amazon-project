@@ -42,7 +42,7 @@ describe('test suite: Product', () => {
 
   it('does not display any extra info', () => {
     expect(product.extraInfoHTML()).toEqual('');
-  })
+  });
 });
 
 describe('test suite: Clothing', () => {
