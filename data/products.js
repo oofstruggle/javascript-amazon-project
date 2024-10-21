@@ -117,10 +117,8 @@ export function loadProductsFetch() {
   const promise = fetch(
     'https://supersimplebackend.dev/products'
   ).then((response) => {
-    console.log(response);
     return response.json(); // асинхронный, возвращает промис
   }).then((productsData) => {
-    console.log(productsData);
     products = productsData.map((productDetails) => {
       if (productDetails.type === 'clothing') {
         return new Clothing(productDetails);
@@ -129,7 +127,6 @@ export function loadProductsFetch() {
       }
       return new Product(productDetails);
     });
-
     console.log('load products');
   });
 
