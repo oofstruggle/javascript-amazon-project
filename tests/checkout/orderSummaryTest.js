@@ -8,10 +8,8 @@ describe('test suite: renderOrderSummary', () => {
 
   const deliveryOption1 = ''
 
-  beforeAll((done) => {
-    loadProductsFetch().then(() => {
-      done();
-    });
+  beforeAll(async () => {    
+    await loadProductsFetch();
   });
 
   beforeEach(() => {

@@ -1,0 +1,7 @@
+
+
+function renderOrdersPage() {
+  let ordersHTML = '';
+
+  
+}
