@@ -82,9 +82,17 @@ async function loadPage() {
       return productsListHTML;
   }
 
+  function updateCartQuantity() {
+    const cartQuantity = calculateCartQuantity();
+
+    document.querySelector('.js-cart-quantity')
+      .innerHTML = cartQuantity;
+  }
+
+  updateCartQuantity();
+
   document.querySelector('.js-orders-grid')
     .innerHTML = ordersHTML;
-
 
   document.querySelectorAll('.js-buy-it-again-button')
     .forEach((button) => {

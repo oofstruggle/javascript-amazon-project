@@ -138,6 +138,7 @@ export function renderOrderSummary() {
 
   function updateCartQuantity() {
     const cartQuantity = calculateCartQuantity();
+    return cartQuantity;
   }
 
   document.querySelectorAll('.js-update-link')
