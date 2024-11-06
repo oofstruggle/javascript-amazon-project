@@ -98,7 +98,8 @@ async function loadPage() {
     .forEach((button) => {
       button.addEventListener('click', () => {
         const productId = button.dataset.productId;
-        addToCart(productId);
+        addToCart(productId, 1);
+        updateCartQuantity();
 
         button.innerHTML = 'Added';
         setTimeout(() => {
